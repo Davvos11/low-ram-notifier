@@ -16,13 +16,14 @@ Notifications look like this (on my system):
 ## Auto-start:
 It might be easiest to use your desktop manager to start the program.
 
-As an alternative there is also a systemd service provided. You can install it like so:
-```shell
-sudo cp ./low-ram-notifier /usr/local/bin
-sudo cp ./low-ram-notifier@.service /etc/systemd/system
-sudo systemctl daemon-reload
-sudo systemctl enable low-ram-notifier@$(id -u)
-sudo systemctl start low-ram-notifier@$(id -u)
-```
+As an alternative there is also a systemd service provided. You can install it like so:  
+1. First, edit `low-ram-notifier@.service`, you can set your preferences in the `ExecStart` line (default is 1GB).
+2. ```shell
+   sudo cp ./low-ram-notifier /usr/local/bin
+   sudo cp ./low-ram-notifier@.service /etc/systemd/system
+   sudo systemctl daemon-reload
+   sudo systemctl enable low-ram-notifier@$(id -u)
+   sudo systemctl start low-ram-notifier@$(id -u)
+   ```
 
 You should immediately get a test notification, if the service properly started.
