@@ -47,7 +47,7 @@ fn show_notification(available: u64) -> notify_rust::error::Result<NotificationH
     Notification::new()
         .appname("Low RAM notifier")
         .summary("Memory low")
-        .body(format!("Less than {} bytes of RAM available!", human_bytes(available as f64)).as_str())
+        .body(format!("Less than {} of RAM available!", human_bytes(available as f64)).as_str())
         .icon("device_mem")
         .show()
 }
