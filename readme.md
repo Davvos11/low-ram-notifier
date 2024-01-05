@@ -24,3 +24,5 @@ sudo systemctl daemon-reload
 sudo systemctl enable low-ram-notifier@$(id -u)
 sudo systemctl start low-ram-notifier@$(id -u)
 ```
+
+You should immediately get a test notification, if the service properly started.
