@@ -12,3 +12,15 @@ You can set the refresh interval with `--interval [interval]`, where [interval] 
 Notifications look like this (on my system):
 
 ![Screenshot_20240105_183031](https://github.com/Davvos11/low-ram-notifier/assets/20478740/df692162-5ea1-4bc3-9a72-0136c0627733)
+
+## Auto-start:
+It might be easiest to use your desktop manager to start the program.
+
+As an alternative there is also a systemd service provided. You can install it like so:
+```shell
+sudo cp ./low-ram-notifier /usr/local/bin
+sudo cp ./low-ram-notifier@.service /etc/systemd/system
+sudo systemctl daemon-reload
+sudo systemctl enable low-ram-notifier@$(id -u)
+sudo systemctl start low-ram-notifier@$(id -u)
+```
